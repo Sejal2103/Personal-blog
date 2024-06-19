@@ -1,13 +1,576 @@
-body {
+/* Global styles */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,300&family=Jura:wght@400;600&family=Poppins:wght@400&display=swap');
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html {
+  font-size: 16px;
+}
+
+body {
+  min-height: 100vh;
+  font-family: '', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  background-color: #ffffff;
+}
+
+#root {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.App {
+  width: 100%;
+  max-width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Header styles */
+.playwrite-fr-moderne-title {
+  font-family: 'Playwrite FR Moderne', cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+#home{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap:24px;
+}
+#headerHome{
+  display: flex;
+  flex-direction: column;
+  padding: 8px 0;
+}
+.create{
+  margin-top: 32px;
+  height: fit-content;
+  border-radius: 12px;
+  text-decoration: none;
+}
+.createBlog{
+  width: 50%;
+  border-radius: 8px;
+  padding: 12px 48px;
+  color: white;
+  background-color:#87BEF5;
+  text-decoration: none;
+}
+.images{
+  display: flex;
+  gap: 24px;
+}
+.images .one, .images .two, .images .three {
+  width: 150px; /* Adjust as needed */
+  height: 300px; /* Adjust as needed */
+  background-size: cover; /* Cover the entire div */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  border-radius: 200px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Add a subtle shadow */
+}
+.images .one{
+  margin-top: 64px;
+}
+.images .two{
+  margin-top: 40px;
+}
+.images .three{
+  margin-top: 12px;
+}
+@media (max-width: 768px) {
+  #home {
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+  }
+
+  #headerHome {
+    max-width: 100%; 
+    text-align: center; 
+  }
+
+  .playwrite-fr-moderne-title {
+    font-size: 24px; /* Adjust font size for smaller screens */
+  }
+
+  .subTitle {
+    font-size: 16px; /* Adjust font size for smaller screens */
+  }
+
+  .createBlog {
+    width: 100%; /* Make button full width */
+    text-align: center; /* Center text in button */
+  }
+
+  .images {
+    display: none; /* Hide images on smaller screens */
+  }
+
+  .header{
+    padding: 12px 24px;
+  }
+}
+
+
+.header {
+  width: 100%;
+  background-color: #87BEF5;
+  padding: 16px 40px;
+  color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.header-content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title-section {
+  flex: 1;
+}
+
+.subTitle {
+  font-size: 18px;
+}
+
+/* .nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+} */
+
+.nav ul {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+}
+
+.nav li {
+  margin-left: 2rem;
+}
+
+.nav li a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 800;
+  font-family: 'Jura', sans-serif;
+  letter-spacing: -0.5px;
+}
+
+.nav li:hover a {
+  border-bottom: 2px solid rgb(255, 255, 255);
+}
+
+.search-section {
+  width: 100%;
+  border-top: 1px solid rgb(255, 255, 255);
+}
+
+.search {
+  width: 100%;
+}
+
+.search-container {
+  position: relative;
+  width: 100%;
+}
+
+.search input[type="text"] {
+  width: 100%;
+  min-height: 48px;
+  font-size: 1rem;
+  padding: 0.25rem 0.8rem 0.25rem 3rem;
+  border-radius: 8px;
+  border: 1px solid rgb(235, 235, 235);
+  background-color:rgba(135, 190, 245, 0.05) ;
+}
+.search-icon {
+  position: absolute;
+  left: 0.8rem; 
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(48, 47, 47, 0.8); 
+  pointer-events: none; 
+}
+.search label {
+  position: absolute;
+  left: -99999px;
+}
+.search input[type="text"]:focus {
+  outline: none; /* Remove default outline */
+  border: 2px solid #007BFF; /* Add blue border */
+}
+
+.noPost {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center; /* Center align text */
+  margin-top: 3rem; /* Add margin to space it from surrounding content */
+}
+
+.noPost p {
+  font-size: 1.25rem; /* Increase the font size */
+  font-weight: bold; /* Make the text bold */
+  margin-bottom: 1rem; /* Add margin to separate it from the button */
+  color: #000; /* Change text color to black (optional) */
+}
+
+.createPost {
+  background-color: #87BEF5;
+  border-radius: 8px;
+  padding: 8px 16px;
+  text-decoration: none; /* Remove underline */
+  color: #fff; /* Set text color to white */
+  transition: background-color 0.3s; /* Smooth transition on hover */
+}
+
+.createPost:hover {
+  background-color: #6aa7d8; /* Darken background on hover */
+}
+
+.feed{
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+.feedTitle{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.feedHeader{
+  color: #87BEF5;
+  font-weight: bold;
+  font-size: 32px;
+}
+.addPostLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px; /* Adjust size as needed */
+  height: 50px; /* Adjust size as needed */
+  background-color: #87BEF5;
+  border-radius: 50%;
+  text-decoration: none;
+}
+.addPost {
+  color: white;
+  font-size: 36px; /* Adjust size as needed */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%; /* Make sure the content fills the container */
+  width: 100%; /* Make sure the content fills the container */
+}
+.postContainer{
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Adjust min width */
+  gap: 16px;
+}
+.post {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 8px;
+  border: 1px solid rgb(235, 235, 235);
+  border-radius: 8px;
+  background: rgba(135, 190, 245, 0.05);
+  height: 100%; /* Ensure it takes the full height */
+  box-sizing: border-box; /* Ensure padding is included in the height */
+}
+
+.newBlog{
+  display: grid;
+  grid-template-columns: repeat(2,50%);
+  place-content: center;
+}
+
+.newPostForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.newPostForm label {
+  margin-top: 1rem;
+}
+
+.newPostForm input[type='text'], 
+.newPostForm textarea {
+  font-family: 'Open Sans', sans-serif;
+  width: 100%;
+  min-height: 48px;
+  font-size: 1rem;
+  padding: 0.4rem 0.8rem;
+  outline: none;
+  border-radius: 4px;
+  border: 1px solid rgba(110, 110, 110, 0.45);
+}
+
+.newPostForm textarea {
+  height: 30px;
+}
+.newPostForm input[type="text"]:focus,
+.newPostForm textarea:focus
+ {
+  outline: none; /* Remove default outline */
+  border: 2px solid #007BFF; /* Add blue border */
+}
+
+.newBlog .newPostForm button {
+  margin-top: 1rem;
+  height: 45px;
+  width: fit-content;
+  background-color: #87BEF5;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  text-decoration: none; /* Remove underline */
+  color: #fff; /* Set text color to white */
+  transition: background-color 0.3s; /* Smooth transition on hover */
+}
+
+.newBlog .newPostForm button:hover {
+  background-color: #6aa7d8; /* Darken background on hover */
+}
+
+.footer {
+  width: 100%;
+  background-color: #151118;
+  padding: 0.50rem;
+  display: grid;
+  place-content: center;
+  color: white;
+  font-size: 12px;
+}
+
+.home, .newBlog, .postPage, .about, .missing,#home {
+  width: 100%;
+  flex-grow: 1;
+  padding: 12px 40px;
+  overflow-y: auto;
+  background-color: #fff;
+}
+
+.cardBlog{
+  display: flex;
+  justify-content: space-between;
+}
+
+.icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end; 
+  margin-right: 12px;
+}
+.edit{
+  margin-top: 8%;
+  color: #000;
+}
+.del{
+  margin-top: 5%;
+  border: none;
+  background: none;
+}
+.icons > *:not(:last-child) {
+  margin-right: 15px; 
+}
+.postTitle, .postBody, .postDate{
+  line-height: normal;
+  margin-left: 1rem;
+  font-style: normal;
+  color: rgb(56, 56, 56);
+}
+.postTitle{
+  font-size: 24px;
+  font-weight: bold;
+}
+.postDate {
+  font-family: 'Jura', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.postBody {
+  margin-top: 0.7rem;
+  font-size: 16px;
+  color: rgb(102, 102, 102);
+}
+
+.postPage .individualBlog{
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  border: 1px solid rgb(235, 235, 235);
+  border-radius: 8px;
+  background: rgba(135, 190, 245, 0.05);
+  height: 100%; /* Ensure it takes the full height */
+  box-sizing: border-box; /* Ensure padding is included in the height */
+}
+
+.postPage .editButton {
+  background-color: #87BEF5;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  margin-right: 10px;
+  border: none;
+}
+.postPage .deleteButton {
+  background-color: red;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+}
+
+.postPage .editButton:hover {
+  background-color: #6aa7d8; /* Slightly darker blue on hover */
+}
+
+.postPage .deleteButton:hover {
+  background-color: darkred; /* Slightly darker red on hover */
+}
+.home .post a {
+  text-decoration: none;
+}
+
+.post:first-child {
+  margin-top: 0;
+}
+
+.post:last-child {
+  border-bottom: none;
+}
+.missing{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.missing p, .postPage p {
+  margin-bottom: 1rem;
+}
+
+
+.statusMsg {
+  margin-top: 2rem;
+}
+
+@media only screen and (min-width: 610px) {
+ 
+
+  .header {
+    font-size: 2rem;
+  }
+
+  .nav {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav ul {
+    text-align: right;
+  }
+
+ 
+
+  .searchForm {
+    width: 50%;
+    padding: .5rem 0;
+  }
+ 
+  .searchForm input[type="text"] {
+    margin-left: 0.5rem;
+  }
+
+  .newPostForm textarea {
+    height: 100px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+
+  .header svg {
+    font-size: 3rem;
+  }
+
+}
+
+@media (max-width: 768px){
+  .postContainer{
+    display: flex;
+    flex-direction: column;
+  }
+  .addPostLink{
+    width: 40px;
+  height: 40px;
+  }
+  .addPost{
+    font-size: 28px;
+  }
+  .postTitle{
+    font-size: 20px;
+  }
+
+  .newBlog {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .newBlog .newPostForm {
+    width: 100%; /* Ensure the form takes full width */
+    padding: 0 16px; /* Add some padding if necessary */
+  }
+  .newPostForm input[type='text'],
+  .newPostForm textarea,
+  .newBlog .newPostForm button {
+    width: 100%; /* Full width for inputs and button */
+    max-width: 100%; /* Ensure it doesn't exceed container width */
+  }
+
+  .newPostForm input[type='text'],
+  .newPostForm textarea {
+    box-sizing: border-box; /* Include padding and border in width */
+  }
+
+  .newPostForm textarea {
+    height: 100px; /* Maintain a consistent height */
+  }
+  .newBlog img{
+    width: 300px;
+    height: 200px;
+    padding-top: 12px;
+  }
 }

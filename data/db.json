@@ -1,0 +1,22 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "today",
+      "date": "June 17, 2024 8:11:24 PM",
+      "body": "t"
+    },
+    {
+      "id": "2",
+      "title": "post 2",
+      "date": "June 17, 2024 8:12:40 PM",
+      "body": "hey there\n"
+    },
+    {
+      "id": "21111",
+      "title": "mern stack project ideas",
+      "date": "June 19, 2024 11:58:51 PM",
+      "body": "1.Personal Project Management Tool\n2.Music Streaming App\n3.Bookstore Library & Stock Keeping app\n"
+    }
+  ]
+}
